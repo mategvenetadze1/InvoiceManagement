@@ -24,18 +24,18 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
+// Custom middlewares
+app.UseMiddleware<ExceptionMiddleware>();
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
-// Custom middlewares
-app.UseMiddleware<ExceptionMiddleware>();
-
 // Built in middlewares 
-app.UseHttpsRedirection();
 app.UseCors("all");
+app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
 app.Run();

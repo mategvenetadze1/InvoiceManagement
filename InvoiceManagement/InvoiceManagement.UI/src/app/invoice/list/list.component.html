@@ -1,0 +1,58 @@
+<section class="pb-5 header text-center">
+    <div class="container py-5 text-white">
+        <div class="row">
+            <div class="col-lg-7 mx-auto">
+                <div class="card border-0 shadow">
+                    <div class="card-body p-5">
+                        <div class="table-responsive">
+                            <table class="table m-0">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Amount</th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let invoice of invoices">
+                                        <td>{{invoice.id}}</td>
+                                        <td>{{invoice.invoiceDate | date: 'dd/MM/yyyy mm:HH'}}</td>
+                                        <td>{{getInvoiceStatusText(invoice.status)}}</td>
+                                        <td>{{invoice.amount}}</td>
+                                        <td>
+                                            <ul class="list-inline m-0">
+                                                <li class="list-inline-item">
+                                                    <button [routerLink]="['/invoice', invoice.id]" 
+                                                        class="btn btn-primary btn-sm" 
+                                                        type="button" 
+                                                        data-toggle="tooltip" 
+                                                        data-placement="top" title="Add">
+                                                        Edit
+                                                        <i class="fa fa-table"></i>
+                                                    </button>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <button (click)="deleteInvoice(invoice.id)"
+                                                        class="btn btn-danger btn-sm" 
+                                                        type="button" 
+                                                        data-toggle="tooltip" 
+                                                        data-placement="top" 
+                                                        title="Delete">
+                                                        Delete
+                                                        <i class="fa fa-trash"></i>
+                                                    </button>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

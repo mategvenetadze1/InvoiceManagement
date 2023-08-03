@@ -2,7 +2,7 @@
 
 public enum InvoiceStatus
 {
-    Draft,
+    Draft = 0,
     Open,
     Paid,
     Canceled

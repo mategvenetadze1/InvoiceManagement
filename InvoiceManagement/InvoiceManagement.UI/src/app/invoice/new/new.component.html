@@ -1,0 +1,45 @@
+<section class="pb-5 header text-center">
+    <div class="container py-5 text-white">
+        <div class="row">
+            <div class="col-lg-7 mx-auto">
+                <div class="card border-0 shadow">
+                    <div class="card-body p-5">
+                        <div class="table-responsive">
+                            <div class="d-flex justify-content-center">
+                                <div class="col-12 col-lg-5">
+                                    <main class="form-signin">
+                                        <form [formGroup]="newForm" (ngSubmit)="create()" autocomplete="off">
+                                            <div class="text-center mb-4">
+                                                <h4 class="mb-3 font-weight-normal">
+                                                    Create new Invoice
+                                                </h4>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input type="number" formControlName="amount" placeholder="Amount" class="form-control" 
+                                                [class.is-invalid]="submitted && newForm.get('amount')?.errors">
+                                                <label for="amount">Amount</label>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <select formControlName="status" class="form-select" 
+                                                [class.is-invalid]="submitted && newForm.get('status')?.errors">
+                                                  <option [value]="0">Draft</option>
+                                                  <option [value]="1">Open</option>
+                                                  <option [value]="2">Paid</option>
+                                                  <option [value]="3">Canceled</option>
+                                                </select>
+                                                <label for="status">Status</label>
+                                            </div>
+                                            <div class="d-grid mt-4 px-1">
+                                                <button class="btn btn-primary btn-sm" type="submit">Create Invoice</button>
+                                            </div>
+                                        </form>
+                                    </main>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
