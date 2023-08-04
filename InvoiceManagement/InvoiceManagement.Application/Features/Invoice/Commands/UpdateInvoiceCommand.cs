@@ -11,16 +11,14 @@ public class UpdateInvoiceCommand : IRequest<Unit>
 
     }
 
-    public UpdateInvoiceCommand(int id, DateTime invoiceDate, InvoiceStatus status, double amount)
+    public UpdateInvoiceCommand(int id, InvoiceStatus status, double amount)
     {
         ID = id;
-        InvoiceDate = invoiceDate;
         Status = status;
         Amount = amount;
     }
 
     public int ID { get; set; }
-    public DateTime InvoiceDate { get; set; }
     public InvoiceStatus Status { get; set; }
     public double Amount { get; set; }
 }

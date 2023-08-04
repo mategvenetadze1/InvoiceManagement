@@ -10,14 +10,12 @@ public class CreateInvoiceCommand : IRequest<Unit>
         
     }
 
-    public CreateInvoiceCommand(DateTime invoiceDate, InvoiceStatus status, double amount)
+    public CreateInvoiceCommand(InvoiceStatus status, double amount)
     {
-        InvoiceDate = invoiceDate;
         Status = status;
         Amount = amount;
     }
 
-    public DateTime InvoiceDate { get; set; }
     public InvoiceStatus Status { get; set; }
     public double Amount { get; set; }
 }

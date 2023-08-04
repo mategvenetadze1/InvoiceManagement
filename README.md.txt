@@ -1,7 +1,7 @@
 # Invoice Management App
 > ### Angular & ASP.NET Core Web API Invoice Management app.
 
-This project is demonstration of a fullstack application built with ASP.NET Core including CRUD operations, routing, and more using styleguides & best practices.
+This project is demonstration of a fullstack application built with ASP.NET Core including CRUD operations.
 
 ## How it works
 
@@ -16,8 +16,21 @@ This is using ASP.NET Core with:
 
 This basic server-side architecture is based on Onion Architecture
 
-**Angular General functionality:**
+## Instructions
+**ASP NET Core**
 
-- CRUD Invoices
+Commands: 
+- Update-Database
 
-**The general page breakdown looks like this:**
+Ports: 
+- Swagger - https://localhost:7012
+- API - http://localhost:5043
+
+**Angular**
+
+Commands: 
+- npm install
+- ng serve
+
+Ports: 
+- UI - http://localhost:4200
