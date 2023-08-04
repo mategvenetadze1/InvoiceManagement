@@ -17,4 +17,17 @@ public class InvoiceManagementDbContext : DbContext
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(InvoiceManagementDbContext).Assembly);
         base.OnModelCreating(modelBuilder);
     }
+
+    public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+    {
+        var entities = ChangeTracker.Entries<Invoice>()
+                                    .Where(x => x.State == EntityState.Added);
+
+        foreach (var entityEntry in entities)
+        {
+            entityEntry.Entity.InvoiceDate = DateTime.UtcNow;
+        }
+
+        return await base.SaveChangesAsync(cancellationToken);
+    }
 }

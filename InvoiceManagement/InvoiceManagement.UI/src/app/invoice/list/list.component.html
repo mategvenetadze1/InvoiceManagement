@@ -18,7 +18,7 @@
                                 <tbody>
                                     <tr *ngFor="let invoice of invoices">
                                         <td>{{invoice.id}}</td>
-                                        <td>{{invoice.invoiceDate | date: 'dd/MM/yyyy mm:HH'}}</td>
+                                        <td>{{invoice.invoiceDate | date: 'dd/MM/yyyy hh:mm'}}</td>
                                         <td>{{getInvoiceStatusText(invoice.status)}}</td>
                                         <td>{{invoice.amount}}</td>
                                         <td>
